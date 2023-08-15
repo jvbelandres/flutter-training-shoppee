@@ -1,16 +1,22 @@
-# shoppee
+# Shoppee
 
-A new Flutter project.
+A Shopping list flutter application.
 
-## Getting Started
+Users would be able to add grocery items to his/her shopping cart, each item categorized
+as defined in models/category.dart Categories enum.
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+<p float="left">
+   <img src='shoppee_empty.png' width=200 />
+   <img src='shoppee_list.png' width=200 />
+   <img src='shoppee_form.png' width=200 />
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Reference:
+ - https://docs.flutter.dev/cookbook/forms/validation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Requirements:
+ - widget tree (layout design).
+ - working flutter app.
+ - push your solution as PR with your name as the branch name to git@github.rds.lexmark.com:chritan/flutter-training-shoppee.git
