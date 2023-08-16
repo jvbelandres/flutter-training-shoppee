@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shoppee/screen/home_screen.dart';
+import 'package:shoppee/screen/new_item_screen.dart';
+
+import 'data/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +25,11 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color.fromARGB(255, 50, 58, 60),
       ),
-      home: const Placeholder(),
+      initialRoute: homeScreen,
+      routes: {
+        homeScreen: (context) => const HomeScreen(),
+        addItemScreen: (context) => const NewItem(),
+      },
     );
   }
 }
