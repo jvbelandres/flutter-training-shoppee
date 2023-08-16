@@ -51,44 +51,46 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(
-          child: addedGroceryItems.isEmpty
-              ? const Center(
-                  child: Text("No items added yet"),
-                )
-              : ListView.builder(
-                  itemCount: addedGroceryItems.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    var currentItem = addedGroceryItems[index];
-                    return ListTile(
-                      title: Row(
-                        children: [
-                          Expanded(
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ColorBox(
-                                  color: currentItem.category.color,
-                                  size: 24.0,
-                                ),
-                                const SizedBox(
-                                  width: 8.0,
-                                ),
-                                TextTile(
-                                  attribute: currentItem.name,
-                                ),
-                              ],
-                            ),
+        child: addedGroceryItems.isEmpty
+            ? const Center(
+                child: Text("No items added yet"),
+              )
+            : ListView.builder(
+                itemCount: addedGroceryItems.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var currentItem = addedGroceryItems[index];
+                  return ListTile(
+                    title: Row(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ColorBox(
+                                color: currentItem.category.color,
+                                size: 24.0,
+                              ),
+                              const SizedBox(
+                                width: 8.0,
+                              ),
+                              TextTile(
+                                attribute: currentItem.name,
+                              ),
+                            ],
                           ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextTile(
-                              attribute: '${currentItem.quantity}',
-                            ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextTile(
+                            attribute: '${currentItem.quantity}',
                           ),
-                        ],
-                      ),
-                    );
-                  })),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+      ),
     );
   }
 }
