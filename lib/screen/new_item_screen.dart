@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shoppee/data/categories.dart';
 import 'package:shoppee/models/category.dart';
+import 'package:shoppee/screen/home_screen.dart';
 import 'package:uuid/uuid.dart';
 
 import '../models/grocery_item.dart';
@@ -27,14 +28,9 @@ class _NewItemState extends State<NewItem> {
             value: e.value,
             child: Row(
               children: [
-                Container(
-                  width: 16,
-                  height: 16,
-                  margin: const EdgeInsets.only(right: 8.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: e.value.color,
-                  ),
+                ColorBox(
+                  color: e.value.color,
+                  size: 16.0,
                 ),
                 Text(e.value.title),
               ],

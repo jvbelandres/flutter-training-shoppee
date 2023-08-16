@@ -17,14 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
           value: e,
           child: Row(
             children: [
-              Container(
-                width: 16,
-                height: 16,
-                margin: const EdgeInsets.only(right: 8.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: e.category.color,
-                ),
+              ColorBox(
+                color: e.category.color,
+                size: 16.0,
               ),
               Text(e.category.title),
             ],
@@ -71,16 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  width: 24,
-                                  height: 24,
-                                  margin: const EdgeInsets.only(right: 8.0),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: currentItem.category.color,
-                                  ),
+                                ColorBox(
+                                  color: currentItem.category.color,
+                                  size: 24.0,
                                 ),
-                                const SizedBox(width: 8.0,),
+                                const SizedBox(
+                                  width: 8.0,
+                                ),
                                 TextTile(
                                   attribute: currentItem.name,
                                 ),
@@ -97,6 +89,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   })),
+    );
+  }
+}
+
+class ColorBox extends StatelessWidget {
+  const ColorBox({super.key, required this.color, required this.size});
+
+  final color;
+  final size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size,
+      height: size,
+      margin: const EdgeInsets.only(right: 8.0),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: color,
+      ),
     );
   }
 }
