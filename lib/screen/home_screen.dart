@@ -60,32 +60,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   var currentItem = addedGroceryItems[index];
                   return ListTile(
-                    title: Row(
-                      children: [
-                        Expanded(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ColorBox(
-                                color: currentItem.category.color,
-                                size: 24.0,
-                              ),
-                              const SizedBox(
-                                width: 8.0,
-                              ),
-                              TextTile(
-                                attribute: currentItem.name,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextTile(
-                            attribute: '${currentItem.quantity}',
-                          ),
-                        ),
-                      ],
+                    leading: ColorBox(
+                      color: currentItem.category.color,
+                      size: 24.0,
+                    ),
+                    trailing: TextTile(
+                      attribute: '${currentItem.quantity}',
+                    ),
+                    title: TextTile(
+                      attribute: currentItem.name,
                     ),
                   );
                 },
