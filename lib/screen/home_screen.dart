@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text("Shoppee"),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () async {
               var newItem = await Navigator.pushNamed(context, addItemScreen);
               if (newItem != null) {
@@ -43,9 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               }
             },
-            child: const Icon(
+            icon: const Icon(
               Icons.add,
-              color: Colors.white,
             ),
           )
         ],
