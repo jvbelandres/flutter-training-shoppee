@@ -20,6 +20,20 @@ class _NewItemState extends State<NewItem> {
   int quantity = 0;
   Category category = categories.values.first;
 
+  void onSubmit() {
+    if (_formKey.currentState!.validate()) {
+      String uuid = const Uuid().v4();
+      GroceryItem item = GroceryItem(
+          id: uuid, name: name, quantity: quantity, category: category);
+
+      Navigator.pop(context, item);
+    }
+  }
+
+  void onReset() {
+    _formKey.currentState?.reset();
+  }
+
   @override
   Widget build(BuildContext context) {
     final categoryItems = categories.entries
@@ -114,28 +128,16 @@ class _NewItemState extends State<NewItem> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        _formKey.currentState!.reset();
-                      },
-                      child: const Text("Reset"),
+                    ActionButtons(
+                      onPress: onReset,
+                      buttonText: "Reset",
                     ),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          String uuid = const Uuid().v4();
-                          GroceryItem item = GroceryItem(
-                              id: uuid,
-                              name: name,
-                              quantity: quantity,
-                              category: category);
-                          Navigator.pop(context, item);
-                        }
-                      },
-                      child: const Text("Add Item"),
+                    ActionButtons(
+                      onPress: onSubmit,
+                      buttonText: "Add Item",
                     ),
                   ],
                 ),
@@ -144,6 +146,25 @@ class _NewItemState extends State<NewItem> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ActionButtons extends StatelessWidget {
+  const ActionButtons({
+    super.key,
+    required this.onPress,
+    required this.buttonText,
+  });
+
+  final VoidCallback onPress;
+  final String buttonText;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPress,
+      child: Text(buttonText),
     );
   }
 }
