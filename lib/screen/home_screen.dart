@@ -11,23 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final itemsToBeDisplayed = addedGroceryItems
-      .map(
-        (e) => DropdownMenuItem(
-          value: e,
-          child: Row(
-            children: [
-              ColorBox(
-                color: e.category.color,
-                size: 16.0,
-              ),
-              Text(e.category.title),
-            ],
-          ),
-        ),
-      )
-      .toList();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

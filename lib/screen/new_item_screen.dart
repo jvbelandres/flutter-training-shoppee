@@ -83,43 +83,39 @@ class _NewItemState extends State<NewItem> {
                   textBaseline: TextBaseline.alphabetic,
                   children: [
                     Expanded(
-                      child: SizedBox(
-                        child: TextFormField(
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          initialValue: quantity.toString(),
-                          decoration: const InputDecoration(
-                            label: Text("Quantity"),
-                          ),
-                          validator: (value) {
-                            if (value != null) {
-                              int? itemQuantity = int.tryParse(value);
-                              if (itemQuantity != null && itemQuantity > 0) {
-                                quantity = itemQuantity;
-                                return null;
-                              }
-                            }
-                            return "Invalid quantity";
-                          },
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        initialValue: quantity.toString(),
+                        decoration: const InputDecoration(
+                          label: Text("Quantity"),
                         ),
+                        validator: (value) {
+                          if (value != null) {
+                            int? itemQuantity = int.tryParse(value);
+                            if (itemQuantity != null && itemQuantity > 0) {
+                              quantity = itemQuantity;
+                              return null;
+                            }
+                          }
+                          return "Invalid quantity";
+                        },
                       ),
                     ),
                     const SizedBox(
                       width: 30.0,
                     ),
                     Expanded(
-                      child: SizedBox(
-                        child: DropdownButtonFormField(
-                          value: categoryItems.first.value,
-                          items: categoryItems,
-                          onChanged: (value) {
-                            var categoryValue = categories.entries.firstWhere(
-                                (element) => element.value == value);
-                            category = categoryValue.value;
-                          },
-                        ),
+                      child: DropdownButtonFormField(
+                        value: categoryItems.first.value,
+                        items: categoryItems,
+                        onChanged: (value) {
+                          var categoryValue = categories.entries
+                              .firstWhere((element) => element.value == value);
+                          category = categoryValue.value;
+                        },
                       ),
                     )
                   ],
