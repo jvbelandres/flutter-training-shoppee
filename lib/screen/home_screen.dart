@@ -41,16 +41,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: addedGroceryItems.length,
                 itemBuilder: (BuildContext context, int index) {
                   var currentItem = addedGroceryItems[index];
-                  return ListTile(
-                    leading: ColorBox(
-                      color: currentItem.category.color,
-                      size: 24.0,
-                    ),
-                    trailing: TextTile(
-                      attribute: '${currentItem.quantity}',
-                    ),
-                    title: TextTile(
-                      attribute: currentItem.name,
+                  return Dismissible(
+                    key: Key(currentItem.id),
+                    onDismissed: (direction) {
+                      setState(() {
+                        addedGroceryItems.removeAt(index);
+                      });
+                    },
+                    child: ListTile(
+                      leading: ColorBox(
+                        color: currentItem.category.color,
+                        size: 24.0,
+                      ),
+                      trailing: TextTile(
+                        attribute: '${currentItem.quantity}',
+                      ),
+                      title: TextTile(
+                        attribute: currentItem.name,
+                      ),
                     ),
                   );
                 },
