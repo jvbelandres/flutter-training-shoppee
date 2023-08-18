@@ -29,7 +29,22 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(
               Icons.add,
             ),
-          )
+          ),
+          IconButton(
+            onPressed: () {
+              setState(() {
+                addedGroceryItems = [];
+              });
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Emptied Grocery Cart'),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.delete,
+            ),
+          ),
         ],
       ),
       body: SafeArea(
