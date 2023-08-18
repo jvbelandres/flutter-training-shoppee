@@ -115,7 +115,9 @@ class _NewItemState extends State<NewItem> {
                           value: categoryItems.first.value,
                           items: categoryItems,
                           onChanged: (value) {
-                            category = Category(value!.title, value.color);
+                            var categoryValue = categories.entries.firstWhere(
+                                (element) => element.value == value);
+                            category = categoryValue.value;
                           },
                         ),
                       ),
