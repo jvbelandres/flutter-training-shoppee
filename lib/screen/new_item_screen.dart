@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:shoppee/data/categories.dart';
 import 'package:shoppee/models/category.dart';
+import 'package:shoppee/models/grocery_cart.dart';
 import 'package:shoppee/screen/home_screen.dart';
 import 'package:uuid/uuid.dart';
 
@@ -26,7 +28,8 @@ class _NewItemState extends State<NewItem> {
       GroceryItem item = GroceryItem(
           id: uuid, name: name, quantity: quantity, category: category);
 
-      Navigator.pop(context, item);
+      Provider.of<GroceryCart>(context, listen: false).addGroceryItem(item);
+      Navigator.pop(context);
     }
   }
 

@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoppee/models/grocery_cart.dart';
 import 'package:shoppee/screen/home_screen.dart';
 import 'package:shoppee/screen/new_item_screen.dart';
 
 import 'data/constants.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => GroceryCart(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
