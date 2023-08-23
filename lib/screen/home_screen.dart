@@ -52,6 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Dismissible(
                     key: Key(currentItem.id),
                     onDismissed: (direction) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                              'Removed ${groceryCart.listOfGroceryItem[index].name} in your cart'),
+                        ),
+                      );
                       groceryCart.removeGroceryItem(index);
                     },
                     child: ListTile(
