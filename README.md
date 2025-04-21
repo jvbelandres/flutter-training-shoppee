@@ -5,18 +5,10 @@ A Shopping list flutter application.
 Users would be able to add grocery items to his/her shopping cart, each item categorized
 as defined in models/category.dart Categories enum.
 
-## Screenshots
+Note: Due to limitations of Lucid app, I managed to separate the widget tree for each screen.
 
-<p float="left">
-   <img src='shoppee_empty.png' width=200 />
-   <img src='shoppee_list.png' width=200 />
-   <img src='shoppee_form.png' width=200 />
-</p>
+## Home Screen
+<img width="600" height="700" src="https://github.rds.lexmark.com/storage/user/1186/files/ead50d62-91bb-4b9f-9a15-b2dc2605a5bb"/>
 
-Reference:
- - https://docs.flutter.dev/cookbook/forms/validation
-
-Requirements:
- - widget tree (layout design).
- - working flutter app.
- - push your solution as PR with your name as the branch name to git@github.rds.lexmark.com:chritan/flutter-training-shoppee.git
+## NewItem Screen
+<img width="700" height="800" src="https://github.rds.lexmark.com/storage/user/1186/files/ab7e67f8-e0d5-4a96-93b9-4136f2f44b33"/>
